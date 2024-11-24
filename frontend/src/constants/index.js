@@ -58,6 +58,10 @@ export const characterKeys = {
     35: "Jubei"
 };
 
+export const characterArray = Object.entries(characterKeys).map(([key,value])=>{
+  return {id: key, name: value}
+})
+
 export const navLinks = [
     {
       id: "about",
