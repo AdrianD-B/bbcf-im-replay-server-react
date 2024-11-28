@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-import { Navbar, Home, About, Characters } from "./components";
+import { Navbar, Home, Contributors, Characters } from "./components";
 import { importantText } from "./constants";
 
 function App() {
@@ -11,8 +11,8 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
         <Route path="/characters" element={<Characters />} />
+        <Route path="/contributors" element={<Contributors />} />
       </Routes>
     </div>
   );

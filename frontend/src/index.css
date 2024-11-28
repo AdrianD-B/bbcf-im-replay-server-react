@@ -20,6 +20,27 @@
   display: block;
 }
 
+.path-1{
+  animation: spin 3s linear infinite;
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+}
+
+.path-2{
+  animation: spin 3s linear infinite reverse;
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to { 
+        transform: rotate(360deg);
+    }
+}
+
 .result-gradient-0{
   background: linear-gradient(
     -60deg, 

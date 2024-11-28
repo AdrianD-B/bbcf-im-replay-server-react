@@ -4,6 +4,7 @@ import Select from "react-select";
 
 import { styles } from "../styles";
 import { characterKeys, characterArray } from "../constants";
+import { SmallOd } from '../assets'
 
 const Home = () => {
   const [allReplays, setAllReplays] = useState([]);
@@ -14,6 +15,8 @@ const Home = () => {
   const [p2Name, setP2Name] = useState("");
   const [p1Char, setP1Char] = useState("");
   const [p2Char, setP2Char] = useState("");
+  const [selectedOptionP1Char, setSelectedOptionP1Char] = useState("");
+  const [selectedOptionP2Char, setSelectedOptionP2Char] = useState("");
   const [selectedOptionP1, setSelectedOptionP1] = useState("");
   const [selectedOptionP2, setSelectedOptionP2] = useState("");
 
@@ -28,7 +31,7 @@ const Home = () => {
     }
   };
 
-  /* const fetchPlayers = async () => {
+  const fetchPlayers = async () => {
     try {
       const response = await axios.get(
         `http://localhost:8080/allplayers`
@@ -37,24 +40,50 @@ const Home = () => {
     } catch (error) {
       console.log(error);
     }
-  }; */
+  };
 
   useEffect(() => {
     fetchReplays();
   }, [page,refresh]);
 
-  /* useEffect(() => {
+  useEffect(() => {
     fetchPlayers();
-  }, []); */
+  }, []);
 
-  const p1HandleChange = (selected) => {
-    setSelectedOptionP1(selected);
+  // p1 handling
+  const p1CharHandleChange = (selected) => {
+    setSelectedOptionP1Char(selected);
     setP1Char(selected.value.id)
   };
-  const p2HandleChange = (selected) => {
-    setSelectedOptionP2(selected);
+  const p1HandleChange = (selected) => {
+    setSelectedOptionP1(selected)
+    setP1Name(selected.value)
+  };
+
+  // p2 handling
+  const p2CharHandleChange = (selected) => {
+    setSelectedOptionP2Char(selected);
     setP2Char(selected.value.id)
   };
+  const p2HandleChange = (selected) => {
+    setSelectedOptionP2(selected)
+    setP2Name(selected.value)
+  };
+
+  const handleDownload = (fileContent) => {
+    console.log('test')
+    const blob = new Blob([fileContent], {type:"text/[plain]"});
+    const fileUrl = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+    link.href = fileUrl;
+    link.download = fileContent; // Specify the filename
+    document.body.appendChild(link);
+    link.click();
+
+    link.remove();
+    URL.revokeObjectURL(fileUrl);
+  }
 
   const characterOptions = characterArray.map((data) => ({
     value: data,
@@ -72,21 +101,14 @@ const Home = () => {
     ),
   }));
 
-  /* const playerOptions = allPlayers.map((data) => ({
+  const playerOptions = allPlayers.map((data) => ({
     value: data,
     label: (
       <div className="flex items-center">
-        <img
-          src={`/${data.name}.png`}
-          alt={data.name}
-          width={50}
-          height={50}
-          className="mr-1"
-        />
         {data}
       </div>
     ),
-  })); */
+  }));
 
   return (
     <section className="relative w-full h-screen mx-auto">
@@ -99,17 +121,29 @@ const Home = () => {
             This listing shows all recent Blazblue games from the Improvement
             mod.
           </p>
-          <div className="max-w-7xl min-h-32 p-7 my-5 gap-5 mx-auto flex rounded bg-blue-900">
+          <div className="rounded-3xl max-w-7xl min-h-32 p-7 my-5 gap-5 mx-auto flex rounded bg-blue-900">
             <div className="h-10 bg-blue-900">
               <h1 className="bg-blue-900 my-auto">Player1 Name</h1>
-              <input onChange={(e) => setP1Name(e.target.value)} />
+              <Select
+                options={playerOptions}
+                onChange={p1HandleChange}
+                value={selectedOptionP1}
+                className="w-48"
+                styles={{singleValue: (provided) => ({
+                  ...provided,
+                  zIndex: "10",
+                  color: "white",
+                  display: "flex",
+                  alignItems: "center",
+                }),}}
+              /> 
             </div>
             <div className="bg-transparent">
               <h1 className="bg-blue-900">Character</h1>
               <Select 
                 options={characterOptions} 
-                onChange={p1HandleChange}
-                value={selectedOptionP1}
+                onChange={p1CharHandleChange}
+                value={selectedOptionP1Char}
                 className="w-48"
                 styles={{singleValue: (provided) => ({
                   ...provided,
@@ -122,14 +156,26 @@ const Home = () => {
             </div>
             <div className="h-10 bg-blue-900">
               <h1 className="bg-blue-900 my-auto">Player2 Name</h1>
-              <input onChange={(e) => setP2Name(e.target.value)} />
+              <Select
+                options={playerOptions}
+                onChange={p2HandleChange}
+                value={selectedOptionP2}
+                className="w-48"
+                styles={{singleValue: (provided) => ({
+                  ...provided,
+                  zIndex: "10",
+                  color: "white",
+                  display: "flex",
+                  alignItems: "center",
+                }),}}
+              /> 
             </div>
             <div className="bg-transparent">
               <h1 className="bg-blue-900">Character</h1>
               <Select 
                 options={characterOptions} 
-                onChange={p2HandleChange}
-                value={selectedOptionP2}
+                onChange={p2CharHandleChange}
+                value={selectedOptionP2Char}
                 className="w-48"
                 styles={{singleValue: (provided) => ({
                   ...provided,
@@ -165,11 +211,13 @@ const Home = () => {
               Next {">"}
             </button>
           </div>
-          {allReplays.map((data) => (
+          {allReplays.map((data, index) => (
             <div
               className={`m-10 p-5 flex flex-row gap-5 justify-between items-center rounded-[20px] result-gradient-${data.winner} drop-shadow-2xl`}
+              key={index}
             >
-              <div className="bg-inherit flex flex-row items-center">
+              <div 
+              className="bg-inherit flex flex-row items-center">
                 <img
                   src={`/${characterKeys[data.p1Toon]}.png`}
                   width={75}
@@ -181,14 +229,17 @@ const Home = () => {
                 >
                   {data.p1.toUpperCase()}
                   {data.winner === 0 ? "🏆" : null}
+                  {data.recorderSteamid64 === data.p1Steamid64 ? "🎥" : null}
                 </p>
               </div>
+              <SmallOd onClick={() => handleDownload(data.filename)}/>
               <div className="bg-inherit flex flex-row justify-between items-center">
                 <p
                   className={`text-xs px-5 sm:text-xl text-white-100 capitalize font-bold bg-inherit`}
                 >
                   {data.p2.toUpperCase()}
                   {data.winner === 1 ? "🏆" : null}
+                  {data.recorderSteamid64 === data.p2Steamid64 ? "🎥" : null}
                 </p>
                 <img
                   src={`/${characterKeys[data.p2Toon]}.png`}

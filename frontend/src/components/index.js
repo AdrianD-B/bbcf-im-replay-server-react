@@ -1,11 +1,11 @@
 import Navbar from './Navbar'
 import Home from './Home'
-import About from './About'
+import Contributors from './Contributors'
 import Characters from './Characters'
 
 export{
     Navbar,
     Home,
-    About,
+    Contributors,
     Characters
 }
