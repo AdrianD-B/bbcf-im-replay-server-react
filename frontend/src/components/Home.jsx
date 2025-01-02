@@ -232,6 +232,7 @@ const Home = () => {
                   {data.recorderSteamid64 === data.p1Steamid64 ? "🎥" : null}
                 </p>
               </div>
+              <p className="absolute bg-inherit top-1 left-[46.2%]">Download</p>
               <SmallOd onClick={() => handleDownload(data.filename)}/>
               <div className="bg-inherit flex flex-row justify-between items-center">
                 <p

@@ -1,8 +1,16 @@
-import React from 'react'
+import React,{useState} from 'react'
+
+import { BbcfRoster } from '../assets'
 
 const Characters = () => {
+  const [selectedChar, setSelectedChar] = useState(null)
+
   return (
-    <div>Characters</div>
+    <section className="relative w-full h-screen mx-auto">
+      <div className={`flex justify-center my-20 mx-auto w-full gap-5`}>
+      <BbcfRoster/>
+      </div>
+    </section>
   )
 }
 

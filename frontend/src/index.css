@@ -27,7 +27,13 @@
 }
 
 .path-2{
-  animation: spin 3s linear infinite reverse;
+  animation: spin 5s linear infinite reverse;
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+}
+
+.path-3{
+  animation: spin 7s linear infinite;
   transform-box: fill-box;
   transform-origin: 50% 50%;
 }
@@ -63,4 +69,15 @@
     darkgreen 50.5%, 
     black 90%
   );
+}
+
+rect {
+  filter: saturate(0.3);
+  pointer-events: visiblePainted;
+  
+}
+
+rect:hover{
+  filter: saturate(1) !important;
+  cursor: pointer;
 }
