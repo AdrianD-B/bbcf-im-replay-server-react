@@ -1,10 +1,14 @@
-const BbcfRoster = () => {
+import { useState } from "react";
+
+const BbcfRoster = ({charSelect, setCharSelect}) => {
+    const [hoveredId, setHoberedId] = useState()
   return (
     <svg
       width="579"
       height="597"
       viewBox="0 0 579 597"
       fill="none"
+      className="bg-transparent"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
     >
@@ -13,6 +17,10 @@ const BbcfRoster = () => {
         y="134"
         width="101"
         height="103"
+        style={{
+            transition: 'filter .2s ease-in-out',
+            filter: (hoveredId || charSelect) === 'Lambda' ? 'brightness(1)' : '',
+        }}
         fill="url(#pattern0_639_83)"
       />
       <rect
@@ -20,6 +28,15 @@ const BbcfRoster = () => {
         y="134"
         width="101"
         height="103"
+        style={{
+            transform: (hoveredId || charSelect) === 'Lambda' ? 'rotate(180deg)' : '',
+            borderRadius: '50%',
+            filter: (hoveredId || charSelect) === 'Lambda' ? 'drop-shadow(0 0 .3rem rgb(0, 225, 255))' : '',
+            transformOrigin: "527.5px 185.5px"
+        }}
+        onMouseOver={()=> setHoberedId('Lambda')}
+        onMouseLeave={()=> setHoberedId()}
+        onClick={() => setCharSelect(hoveredId)}
         fill="url(#pattern1_639_83)"
       />
       <rect
@@ -27,6 +44,10 @@ const BbcfRoster = () => {
         y="315"
         width="101"
         height="103"
+        style={{
+            transition: 'filter .2s ease-in-out',
+            filter: (hoveredId || charSelect) === "Amane" ? 'brightness(1)' : '',
+        }}
         fill="url(#pattern2_639_83)"
       />
       <rect
@@ -34,6 +55,15 @@ const BbcfRoster = () => {
         y="315"
         width="101"
         height="103"
+        style={{
+            transform: (hoveredId || charSelect) === "Amane" ? 'rotate(180deg)' : '',
+            borderRadius: '50%',
+            filter: (hoveredId || charSelect) === "Amane" ? 'drop-shadow(0 0 .3rem rgb(0, 225, 255))' : '',
+            transformOrigin: "527.5px 366.5px"
+        }}
+        onMouseOver={()=> setHoberedId("Amane")}
+        onMouseLeave={()=> setHoberedId()}
+        onClick={() => setCharSelect(hoveredId)}
         fill="url(#pattern3_639_83)"
       />
       <rect
@@ -41,6 +71,10 @@ const BbcfRoster = () => {
         y="224"
         width="101"
         height="103"
+        style={{
+            transition: 'filter .2s ease-in-out',
+            filter: (hoveredId || charSelect) === 'Azrael' ? 'brightness(1)' : '',
+        }}
         fill="url(#pattern4_639_83)"
       />
       <rect
@@ -48,13 +82,26 @@ const BbcfRoster = () => {
         y="224"
         width="101"
         height="103"
+        style={{
+            transform: (hoveredId || charSelect) === 'Azrael' ? 'rotate(180deg)' : '',
+            borderRadius: '50%',
+            filter: (hoveredId || charSelect) === 'Azrael' ? 'drop-shadow(0 0 .3rem rgb(0, 225, 255))' : '',
+            transformOrigin: "527.5px 275.5px"
+        }}
+        onMouseOver={()=> setHoberedId('Azrael')}
+        onMouseLeave={()=> setHoberedId()}
+        onClick={() => setCharSelect(hoveredId)}
         fill="url(#pattern5_639_83)"
       />
       <rect
-        x="478"
+        x="477"
         y="43"
         width="101"
         height="103"
+        style={{
+            transition: 'filter .2s ease-in-out',
+            filter: (hoveredId || charSelect) === 'Mai' ? 'brightness(1)' : '',
+        }}
         fill="url(#pattern6_639_83)"
       />
       <rect
@@ -62,6 +109,15 @@ const BbcfRoster = () => {
         y="43"
         width="101"
         height="103"
+        style={{
+            transform: (hoveredId || charSelect) === 'Mai' ? 'rotate(180deg)' : '',
+            borderRadius: '50%',
+            filter: (hoveredId || charSelect) === 'Mai' ? 'drop-shadow(0 0 .3rem rgb(0, 225, 255))' : '',
+            transformOrigin: "527.5px 94.5px"
+        }}
+        onMouseOver={()=> setHoberedId('Mai')}
+        onMouseLeave={()=> setHoberedId()}
+        onClick={() => setCharSelect(hoveredId)}
         fill="url(#pattern7_639_83)"
       />
       <rect
@@ -69,6 +125,10 @@ const BbcfRoster = () => {
         y="88"
         width="101"
         height="103"
+        style={{
+            transition: 'filter .2s ease-in-out',
+            filter: (hoveredId || charSelect) === 'Tsubaki' ? 'brightness(1)' : '',
+        }}
         fill="url(#pattern8_639_83)"
       />
       <rect
@@ -76,6 +136,15 @@ const BbcfRoster = () => {
         y="88"
         width="101"
         height="103"
+        style={{
+            transform: (hoveredId || charSelect) === 'Tsubaki' ? 'rotate(180deg)' : '',
+            borderRadius: '50%',
+            filter: (hoveredId || charSelect) === 'Tsubaki' ? 'drop-shadow(0 0 .3rem rgb(0, 225, 255))' : '',
+            transformOrigin: "448.5px 139.5px"
+        }}
+        onMouseOver={()=> setHoberedId('Tsubaki')}
+        onMouseLeave={()=> setHoberedId()}
+        onClick={() => setCharSelect(hoveredId)}
         fill="url(#pattern9_639_83)"
       />
       <rect
@@ -83,6 +152,10 @@ const BbcfRoster = () => {
         y="179"
         width="101"
         height="103"
+        style={{
+            transition: 'filter .2s ease-in-out',
+            filter: (hoveredId || charSelect) === 'Kokonoe' ? 'brightness(1)' : '',
+        }}
         fill="url(#pattern10_639_83)"
       />
       <rect
@@ -90,6 +163,15 @@ const BbcfRoster = () => {
         y="179"
         width="101"
         height="103"
+        style={{
+            transform: (hoveredId || charSelect) === 'Kokonoe' ? 'rotate(180deg)' : '',
+            borderRadius: '50%',
+            filter: (hoveredId || charSelect) === 'Kokonoe' ? 'drop-shadow(0 0 .3rem rgb(0, 225, 255))' : '',
+            transformOrigin: "448.5px 230.5px"
+        }}
+        onMouseOver={()=> setHoberedId('Kokonoe')}
+        onMouseLeave={()=> setHoberedId()}
+        onClick={() => setCharSelect(hoveredId)}
         fill="url(#pattern11_639_83)"
       />
       <rect
@@ -97,6 +179,10 @@ const BbcfRoster = () => {
         y="270"
         width="101"
         height="103"
+        style={{
+            transition: 'filter .2s ease-in-out',
+            filter: (hoveredId || charSelect) === 'Izayoi' ? 'brightness(1)' : '',
+        }}
         fill="url(#pattern12_639_83)"
       />
       <rect
@@ -104,6 +190,15 @@ const BbcfRoster = () => {
         y="270"
         width="101"
         height="103"
+        style={{
+            transform: (hoveredId || charSelect) === 'Izayoi' ? 'rotate(180deg)' : '',
+            borderRadius: '50%',
+            filter: (hoveredId || charSelect) === 'Izayoi' ? 'drop-shadow(0 0 .3rem rgb(0, 225, 255))' : '',
+            transformOrigin: "448.5px 321.5px"
+        }}
+        onMouseOver={()=> setHoberedId('Izayoi')}
+        onMouseLeave={()=> setHoberedId()}
+        onClick={() => setCharSelect(hoveredId)}
         fill="url(#pattern13_639_83)"
       />
       <rect
@@ -111,6 +206,10 @@ const BbcfRoster = () => {
         y="361"
         width="101"
         height="103"
+        style={{
+            transition: 'filter .2s ease-in-out',
+            filter: (hoveredId || charSelect) === 'Arakune' ? 'brightness(1)' : '',
+        }}
         fill="url(#pattern14_639_83)"
       />
       <rect
@@ -118,13 +217,26 @@ const BbcfRoster = () => {
         y="361"
         width="101"
         height="103"
+        style={{
+            transform: (hoveredId || charSelect) === 'Arakune' ? 'rotate(180deg)' : '',
+            borderRadius: '50%',
+            filter: (hoveredId || charSelect) === 'Arakune' ? 'drop-shadow(0 0 .3rem rgb(0, 225, 255))' : '',
+            transformOrigin: "448.5px 412.5px"
+        }}
+        onMouseOver={()=> setHoberedId('Arakune')}
+        onMouseLeave={()=> setHoberedId()}
+        onClick={() => setCharSelect(hoveredId)}
         fill="url(#pattern15_639_83)"
       />
       <rect
-        x="399"
+        x="398"
         y="451"
         width="101"
         height="103"
+        style={{
+            transition: 'filter .2s ease-in-out',
+            filter: (hoveredId || charSelect) === 'Bang' ? 'brightness(1)' : '',
+        }}
         fill="url(#pattern16_639_83)"
       />
       <rect
@@ -132,6 +244,15 @@ const BbcfRoster = () => {
         y="451"
         width="101"
         height="103"
+        style={{
+            transform: (hoveredId || charSelect) === 'Bang' ? 'rotate(180deg)' : '',
+            borderRadius: '50%',
+            filter: (hoveredId || charSelect) === 'Bang' ? 'drop-shadow(0 0 .3rem rgb(0, 225, 255))' : '',
+            transformOrigin: "448.5px 502.5px"
+        }}
+        onMouseOver={()=> setHoberedId('Bang')}
+        onMouseLeave={()=> setHoberedId()}
+        onClick={() => setCharSelect(hoveredId)}
         fill="url(#pattern17_639_83)"
       />
       <rect
@@ -139,6 +260,10 @@ const BbcfRoster = () => {
         y="494"
         width="101"
         height="103"
+        style={{
+          transition: 'filter .2s ease-in-out',
+          filter: (hoveredId || charSelect) === 'Taokaka' ? 'brightness(1)' : '',
+        }}
         fill="url(#pattern18_639_83)"
       />
       <rect
@@ -146,6 +271,15 @@ const BbcfRoster = () => {
         y="494"
         width="101"
         height="103"
+        style={{
+          transform: (hoveredId || charSelect) === 'Taokaka' ? 'rotate(180deg)' : '',
+          borderRadius: '50%',
+          filter: (hoveredId || charSelect) === 'Taokaka' ? 'drop-shadow(0 0 .3rem rgb(0, 225, 255))' : '',
+          transformOrigin: "368.5px 545.5px"
+        }}
+        onMouseOver={()=> setHoberedId('Taokaka')}
+        onMouseLeave={()=> setHoberedId()}
+        onClick={() => setCharSelect(hoveredId)}
         fill="url(#pattern19_639_83)"
       />
       <rect
@@ -153,6 +287,10 @@ const BbcfRoster = () => {
         y="405"
         width="101"
         height="103"
+        style={{
+          transition: 'filter .2s ease-in-out',
+          filter: (hoveredId || charSelect) === 'Carl' ? 'brightness(1)' : '',
+        }}
         fill="url(#pattern20_639_83)"
       />
       <rect
@@ -160,6 +298,15 @@ const BbcfRoster = () => {
         y="405"
         width="101"
         height="103"
+        style={{
+          transform: (hoveredId || charSelect) === 'Carl' ? 'rotate(180deg)' : '',
+          borderRadius: '50%',
+          filter: (hoveredId || charSelect) === 'Carl' ? 'drop-shadow(0 0 .3rem rgb(0, 225, 255))' : '',
+          transformOrigin: "368.5px 456.5px"
+        }}
+        onMouseOver={()=> setHoberedId('Carl')}
+        onMouseLeave={()=> setHoberedId()}
+        onClick={() => setCharSelect(hoveredId)}
         fill="url(#pattern21_639_83)"
       />
       <rect
@@ -167,6 +314,10 @@ const BbcfRoster = () => {
         y="315"
         width="101"
         height="103"
+        style={{
+          transition: 'filter .2s ease-in-out',
+          filter: (hoveredId || charSelect) === 'Hakumen' ? 'brightness(1)' : '',
+        }}
         fill="url(#pattern22_639_83)"
       />
       <rect
@@ -174,6 +325,15 @@ const BbcfRoster = () => {
         y="315"
         width="101"
         height="103"
+        style={{
+          transform: (hoveredId || charSelect) === 'Hakumen' ? 'rotate(180deg)' : '',
+          borderRadius: '50%',
+          filter: (hoveredId || charSelect) === 'Hakumen' ? 'drop-shadow(0 0 .3rem rgb(0, 225, 255))' : '',
+          transformOrigin: "368.5px 366.5px"
+        }}
+        onMouseOver={()=> setHoberedId('Hakumen')}
+        onMouseLeave={()=> setHoberedId()}
+        onClick={() => setCharSelect(hoveredId)}
         fill="url(#pattern23_639_83)"
       />
       <rect
@@ -181,6 +341,10 @@ const BbcfRoster = () => {
         y="224"
         width="101"
         height="103"
+        style={{
+          transition: 'filter .2s ease-in-out',
+          filter: (hoveredId || charSelect) === 'Rachel' ? 'brightness(1)' : '',
+        }}
         fill="url(#pattern24_639_83)"
       />
       <rect
@@ -188,6 +352,15 @@ const BbcfRoster = () => {
         y="224"
         width="101"
         height="103"
+        style={{
+          transform: (hoveredId || charSelect) === 'Rachel' ? 'rotate(180deg)' : '',
+          borderRadius: '50%',
+          filter: (hoveredId || charSelect) === 'Rachel' ? 'drop-shadow(0 0 .3rem rgb(0, 225, 255))' : '',
+          transformOrigin: "368.5px 275.5px"
+        }}
+        onMouseOver={()=> setHoberedId('Rachel')}
+        onMouseLeave={()=> setHoberedId()}
+        onClick={() => setCharSelect(hoveredId)}
         fill="url(#pattern25_639_83)"
       />
       <rect
@@ -195,6 +368,10 @@ const BbcfRoster = () => {
         y="134"
         width="101"
         height="103"
+        style={{
+          transition: 'filter .2s ease-in-out',
+          filter: (hoveredId || charSelect) === "Jin" ? 'brightness(1)' : '',
+        }}
         fill="url(#pattern26_639_83)"
       />
       <rect
@@ -202,6 +379,15 @@ const BbcfRoster = () => {
         y="134"
         width="101"
         height="103"
+        style={{
+          transform: (hoveredId || charSelect) === "Jin" ? 'rotate(180deg)' : '',
+          borderRadius: '50%',
+          filter: (hoveredId || charSelect) === "Jin" ? 'drop-shadow(0 0 .3rem rgb(0, 225, 255))' : '',
+          transformOrigin: "368.5px 185.5px"
+        }}
+        onMouseOver={()=> setHoberedId("Jin")}
+        onMouseLeave={()=> setHoberedId()}
+        onClick={() => setCharSelect(hoveredId)}
         fill="url(#pattern27_639_83)"
       />
       <rect
@@ -209,6 +395,10 @@ const BbcfRoster = () => {
         y="43"
         width="101"
         height="103"
+        style={{
+          transition: 'filter .2s ease-in-out',
+          filter: (hoveredId || charSelect) === 'Hibiki' ? 'brightness(1)' : '',
+        }}
         fill="url(#pattern28_639_83)"
       />
       <rect
@@ -216,15 +406,51 @@ const BbcfRoster = () => {
         y="43"
         width="101"
         height="103"
+        style={{
+          transform: (hoveredId || charSelect) === 'Hibiki' ? 'rotate(180deg)' : '',
+          borderRadius: '50%',
+          filter: (hoveredId || charSelect) === 'Hibiki' ? 'drop-shadow(0 0 .3rem rgb(0, 225, 255))' : '',
+          transformOrigin: "368.5px 94.5px"
+        }}
+        onMouseOver={()=> setHoberedId('Hibiki')}
+        onMouseLeave={()=> setHoberedId()}
+        onClick={() => setCharSelect(hoveredId)}
         fill="url(#pattern29_639_83)"
       />
-      <rect x="238" width="101" height="103" fill="url(#pattern30_639_83)" />
-      <rect x="238" width="101" height="103" fill="url(#pattern31_639_83)" />
+      <rect 
+        x="238" 
+        width="101" 
+        height="103"
+        style={{
+          transition: 'filter .2s ease-in-out',
+          filter: (hoveredId || charSelect) === "Susanoo" ? 'brightness(1)' : '',
+        }} 
+        fill="url(#pattern30_639_83)" 
+      />
+      <rect 
+        x="238" 
+        width="101" 
+        height="103" 
+        style={{
+          transform: (hoveredId || charSelect) === "Susanoo" ? 'rotate(180deg)' : '',
+          borderRadius: '50%',
+          filter: (hoveredId || charSelect) === "Susanoo" ? 'drop-shadow(0 0 .3rem rgb(0, 225, 255))' : '',
+          transformOrigin: "288.5px 51.5px"
+        }}
+        onMouseOver={()=> setHoberedId("Susanoo")}
+        onMouseLeave={()=> setHoberedId()}
+        onClick={() => setCharSelect(hoveredId)}
+        fill="url(#pattern31_639_83)" 
+      />
       <rect
         x="238"
         y="88"
         width="101"
         height="103"
+        style={{
+          transition: 'filter .2s ease-in-out',
+          filter: (hoveredId || charSelect) === 'Jubei' ? 'brightness(1)' : '',
+        }} 
         fill="url(#pattern32_639_83)"
       />
       <rect
@@ -232,6 +458,15 @@ const BbcfRoster = () => {
         y="88"
         width="101"
         height="103"
+        style={{
+          transform: (hoveredId || charSelect) === 'Jubei' ? 'rotate(180deg)' : '',
+          borderRadius: '50%',
+          filter: (hoveredId || charSelect) === 'Jubei' ? 'drop-shadow(0 0 .3rem rgb(0, 225, 255))' : '',
+          transformOrigin: "288.5px 139.5px"
+        }}
+        onMouseOver={()=> setHoberedId('Jubei')}
+        onMouseLeave={()=> setHoberedId()}
+        onClick={() => setCharSelect(hoveredId)}
         fill="url(#pattern33_639_83)"
       />
       <rect
@@ -239,6 +474,10 @@ const BbcfRoster = () => {
         y="179"
         width="101"
         height="103"
+        style={{
+          transition: 'filter .2s ease-in-out',
+          filter: (hoveredId || charSelect) === 'Izanami' ? 'brightness(1)' : '',
+        }} 
         fill="url(#pattern34_639_83)"
       />
       <rect
@@ -246,6 +485,15 @@ const BbcfRoster = () => {
         y="179"
         width="101"
         height="103"
+        style={{
+          transform: (hoveredId || charSelect) === 'Izanami' ? 'rotate(180deg)' : '',
+          borderRadius: '50%',
+          filter: (hoveredId || charSelect) === 'Izanami' ? 'drop-shadow(0 0 .3rem rgb(0, 225, 255))' : '',
+          transformOrigin: "288.5px 230.5px"
+        }}
+        onMouseOver={()=> setHoberedId('Izanami')}
+        onMouseLeave={()=> setHoberedId()}
+        onClick={() => setCharSelect(hoveredId)}
         fill="url(#pattern35_639_83)"
       />
       <rect
@@ -253,6 +501,10 @@ const BbcfRoster = () => {
         y="271"
         width="101"
         height="103"
+        style={{
+          transition: 'filter .2s ease-in-out',
+          filter: (hoveredId || charSelect) === 'Nine' ? 'brightness(1)' : '',
+        }}
         fill="url(#pattern36_639_83)"
       />
       <rect
@@ -260,6 +512,15 @@ const BbcfRoster = () => {
         y="270"
         width="101"
         height="103"
+        style={{
+          transform: (hoveredId || charSelect) === 'Nine' ? 'rotate(180deg)' : '',
+          borderRadius: '50%',
+          filter: (hoveredId || charSelect) === 'Nine' ? 'drop-shadow(0 0 .3rem rgb(0, 225, 255))' : '',
+          transformOrigin: "288.5px 321.5px"
+        }}
+        onMouseOver={()=> setHoberedId('Nine')}
+        onMouseLeave={()=> setHoberedId()}
+        onClick={() => setCharSelect(hoveredId)}
         fill="url(#pattern37_639_83)"
       />
       <rect
@@ -267,6 +528,10 @@ const BbcfRoster = () => {
         y="361"
         width="101"
         height="103"
+        style={{
+          transition: 'filter .2s ease-in-out',
+          filter: (hoveredId || charSelect) === 'Terumi' ? 'brightness(1)' : '',
+        }}
         fill="url(#pattern38_639_83)"
       />
       <rect
@@ -274,6 +539,15 @@ const BbcfRoster = () => {
         y="361"
         width="101"
         height="103"
+        style={{
+          transform: (hoveredId || charSelect) === 'Terumi' ? 'rotate(180deg)' : '',
+          borderRadius: '50%',
+          filter: (hoveredId || charSelect) === 'Terumi' ? 'drop-shadow(0 0 .3rem rgb(0, 225, 255))' : '',
+          transformOrigin: "288.5px 412.5px"
+        }}
+        onMouseOver={()=> setHoberedId('Terumi')}
+        onMouseLeave={()=> setHoberedId()}
+        onClick={() => setCharSelect(hoveredId)}
         fill="url(#pattern39_639_83)"
       />
       <rect
@@ -281,6 +555,10 @@ const BbcfRoster = () => {
         y="451"
         width="101"
         height="103"
+        style={{
+          transition: 'filter .2s ease-in-out',
+          filter: (hoveredId || charSelect) === 'Mu' ? 'brightness(1)' : '',
+        }}
         fill="url(#pattern40_639_83)"
       />
       <rect
@@ -288,6 +566,15 @@ const BbcfRoster = () => {
         y="451"
         width="101"
         height="103"
+        style={{
+          transform: (hoveredId || charSelect) === 'Mu' ? 'rotate(180deg)' : '',
+          borderRadius: '50%',
+          filter: (hoveredId || charSelect) === 'Mu' ? 'drop-shadow(0 0 .3rem rgb(0, 225, 255))' : '',
+          transformOrigin: "288.5px 502.5px"
+        }}
+        onMouseOver={()=> setHoberedId('Mu')}
+        onMouseLeave={()=> setHoberedId()}
+        onClick={() => setCharSelect(hoveredId)}
         fill="url(#pattern41_639_83)"
       />
       <rect
@@ -295,6 +582,10 @@ const BbcfRoster = () => {
         y="494"
         width="101"
         height="103"
+        style={{
+          transition: 'filter .2s ease-in-out',
+          filter: (hoveredId || charSelect) === 'Valkenhayn' ? 'brightness(1)' : '',
+        }}
         fill="url(#pattern42_639_83)"
       />
       <rect
@@ -302,6 +593,15 @@ const BbcfRoster = () => {
         y="494"
         width="101"
         height="103"
+        style={{
+          transform: (hoveredId || charSelect) === 'Valkenhayn' ? 'rotate(180deg)' : '',
+          borderRadius: '50%',
+          filter: (hoveredId || charSelect) === 'Valkenhayn' ? 'drop-shadow(0 0 .3rem rgb(0, 225, 255))' : '',
+          transformOrigin: "209.5px 545.5px"
+        }}
+        onMouseOver={()=> setHoberedId('Valkenhayn')}
+        onMouseLeave={()=> setHoberedId()}
+        onClick={() => setCharSelect(hoveredId)}
         fill="url(#pattern43_639_83)"
       />
       <rect
@@ -309,6 +609,10 @@ const BbcfRoster = () => {
         y="405"
         width="101"
         height="103"
+        style={{
+          transition: 'filter .2s ease-in-out',
+          filter: (hoveredId || charSelect) === 'Relius' ? 'brightness(1)' : '',
+        }}
         fill="url(#pattern44_639_83)"
       />
       <rect
@@ -316,6 +620,15 @@ const BbcfRoster = () => {
         y="405"
         width="101"
         height="103"
+        style={{
+          transform: (hoveredId || charSelect) === 'Relius' ? 'rotate(180deg)' : '',
+          borderRadius: '50%',
+          filter: (hoveredId || charSelect) === 'Relius' ? 'drop-shadow(0 0 .3rem rgb(0, 225, 255))' : '',
+          transformOrigin: "209.5px 456.5px"
+        }}
+        onMouseOver={()=> setHoberedId('Relius')}
+        onMouseLeave={()=> setHoberedId()}
+        onClick={() => setCharSelect(hoveredId)}
         fill="url(#pattern45_639_83)"
       />
       <rect
@@ -323,6 +636,10 @@ const BbcfRoster = () => {
         y="315"
         width="101"
         height="103"
+        style={{
+          transition: 'filter .2s ease-in-out',
+          filter: (hoveredId || charSelect) === 'Makoto' ? 'brightness(1)' : '',
+        }}
         fill="url(#pattern46_639_83)"
       />
       <rect
@@ -330,6 +647,15 @@ const BbcfRoster = () => {
         y="315"
         width="101"
         height="103"
+        style={{
+          transform: (hoveredId || charSelect) === 'Makoto' ? 'rotate(180deg)' : '',
+          borderRadius: '50%',
+          filter: (hoveredId || charSelect) === 'Makoto' ? 'drop-shadow(0 0 .3rem rgb(0, 225, 255))' : '',
+          transformOrigin: "209.5px 366.5px"
+        }}
+        onMouseOver={()=> setHoberedId('Makoto')}
+        onMouseLeave={()=> setHoberedId()}
+        onClick={() => setCharSelect(hoveredId)}
         fill="url(#pattern47_639_83)"
       />
       <rect
@@ -337,6 +663,10 @@ const BbcfRoster = () => {
         y="224"
         width="101"
         height="103"
+        style={{
+          transition: 'filter .2s ease-in-out',
+          filter: (hoveredId || charSelect) === 'Noel' ? 'brightness(1)' : '',
+        }}
         fill="url(#pattern48_639_83)"
       />
       <rect
@@ -344,6 +674,15 @@ const BbcfRoster = () => {
         y="224"
         width="101"
         height="103"
+        style={{
+          transform: (hoveredId || charSelect) === 'Noel' ? 'rotate(180deg)' : '',
+          borderRadius: '50%',
+          filter: (hoveredId || charSelect) === 'Noel' ? 'drop-shadow(0 0 .3rem rgb(0, 225, 255))' : '',
+          transformOrigin: "209.5px 275.5px"
+        }}
+        onMouseOver={()=> setHoberedId('Noel')}
+        onMouseLeave={()=> setHoberedId()}
+        onClick={() => setCharSelect(hoveredId)}
         fill="url(#pattern49_639_83)"
       />
       <rect
@@ -351,6 +690,10 @@ const BbcfRoster = () => {
         y="134"
         width="101"
         height="103"
+        style={{
+          transition: 'filter .2s ease-in-out',
+          filter: (hoveredId || charSelect) === 'Ragna' ? 'brightness(1)' : '',
+        }}
         fill="url(#pattern50_639_83)"
       />
       <rect
@@ -358,6 +701,15 @@ const BbcfRoster = () => {
         y="134"
         width="101"
         height="103"
+        style={{
+          transform: (hoveredId || charSelect) === 'Ragna' ? 'rotate(180deg)' : '',
+          borderRadius: '50%',
+          filter: (hoveredId || charSelect) === 'Ragna' ? 'drop-shadow(0 0 .3rem rgb(0, 225, 255))' : '',
+          transformOrigin: "209.5px 185.5px"
+        }}
+        onMouseOver={()=> setHoberedId('Ragna')}
+        onMouseLeave={()=> setHoberedId()}
+        onClick={() => setCharSelect(hoveredId)}
         fill="url(#pattern51_639_83)"
       />
       <rect
@@ -365,6 +717,10 @@ const BbcfRoster = () => {
         y="43"
         width="101"
         height="103"
+        style={{
+          transition: 'filter .2s ease-in-out',
+          filter: (hoveredId || charSelect) === 'Naoto' ? 'brightness(1)' : '',
+        }}
         fill="url(#pattern52_639_83)"
       />
       <rect
@@ -372,6 +728,15 @@ const BbcfRoster = () => {
         y="43"
         width="101"
         height="103"
+        style={{
+          transform: (hoveredId || charSelect) === 'Naoto' ? 'rotate(180deg)' : '',
+          borderRadius: '50%',
+          filter: (hoveredId || charSelect) === 'Naoto' ? 'drop-shadow(0 0 .3rem rgb(0, 225, 255))' : '',
+          transformOrigin: "209.5px 94.5px"
+        }}
+        onMouseOver={()=> setHoberedId('Naoto')}
+        onMouseLeave={()=> setHoberedId()}
+        onClick={() => setCharSelect(hoveredId)}
         fill="url(#pattern53_639_83)"
       />
       <rect
@@ -379,6 +744,10 @@ const BbcfRoster = () => {
         y="451"
         width="101"
         height="103"
+        style={{
+          transition: 'filter .2s ease-in-out',
+          filter: (hoveredId || charSelect) === 'Platinum' ? 'brightness(1)' : '',
+        }}
         fill="url(#pattern54_639_83)"
       />
       <rect
@@ -386,13 +755,26 @@ const BbcfRoster = () => {
         y="451"
         width="101"
         height="103"
+        style={{
+          transform: (hoveredId || charSelect) === 'Platinum' ? 'rotate(180deg)' : '',
+          borderRadius: '50%',
+          filter: (hoveredId || charSelect) === 'Platinum' ? 'drop-shadow(0 0 .3rem rgb(0, 225, 255))' : '',
+          transformOrigin: "128.5px 502.5px"
+        }}
+        onMouseOver={()=> setHoberedId('Platinum')}
+        onMouseLeave={()=> setHoberedId()}
+        onClick={() => setCharSelect(hoveredId)}
         fill="url(#pattern55_639_83)"
       />
       <rect
         x="78"
-        y="361"
+        y="360"
         width="101"
         height="103"
+        style={{
+          transition: 'filter .2s ease-in-out',
+          filter: (hoveredId || charSelect) === 'Litchi' ? 'brightness(1)' : '',
+        }}
         fill="url(#pattern56_639_83)"
       />
       <rect
@@ -400,13 +782,26 @@ const BbcfRoster = () => {
         y="360"
         width="101"
         height="103"
+        style={{
+          transform: (hoveredId || charSelect) === 'Litchi' ? 'rotate(180deg)' : '',
+          borderRadius: '50%',
+          filter: (hoveredId || charSelect) === 'Litchi' ? 'drop-shadow(0 0 .3rem rgb(0, 225, 255))' : '',
+          transformOrigin: "128.5px 411.5px"
+        }}
+        onMouseOver={()=> setHoberedId('Litchi')}
+        onMouseLeave={()=> setHoberedId()}
+        onClick={() => setCharSelect(hoveredId)}
         fill="url(#pattern57_639_83)"
       />
       <rect
         x="78"
-        y="272"
+        y="270"
         width="101"
         height="103"
+        style={{
+          transition: 'filter .2s ease-in-out',
+          filter: (hoveredId || charSelect) === 'Celica' ? 'brightness(1)' : '',
+        }}
         fill="url(#pattern58_639_83)"
       />
       <rect
@@ -414,6 +809,15 @@ const BbcfRoster = () => {
         y="270"
         width="101"
         height="103"
+        style={{
+          transform: (hoveredId || charSelect) === 'Celica' ? 'rotate(180deg)' : '',
+          borderRadius: '50%',
+          filter: (hoveredId || charSelect) === 'Celica' ? 'drop-shadow(0 0 .3rem rgb(0, 225, 255))' : '',
+          transformOrigin: "128.5px 321.5px"
+        }}
+        onMouseOver={()=> setHoberedId('Celica')}
+        onMouseLeave={()=> setHoberedId()}
+        onClick={() => setCharSelect(hoveredId)}
         fill="url(#pattern59_639_83)"
       />
       <rect
@@ -421,6 +825,10 @@ const BbcfRoster = () => {
         y="180"
         width="101"
         height="103"
+        style={{
+          transition: 'filter .2s ease-in-out',
+          filter: (hoveredId || charSelect) === 'Kagura' ? 'brightness(1)' : '',
+        }}
         fill="url(#pattern60_639_83)"
       />
       <rect
@@ -428,6 +836,15 @@ const BbcfRoster = () => {
         y="180"
         width="101"
         height="103"
+        style={{
+          transform: (hoveredId || charSelect) === 'Kagura' ? 'rotate(180deg)' : '',
+          borderRadius: '50%',
+          filter: (hoveredId || charSelect) === 'Kagura' ? 'drop-shadow(0 0 .3rem rgb(0, 225, 255))' : '',
+          transformOrigin: "128.5px 231.5px"
+        }}
+        onMouseOver={()=> setHoberedId('Kagura')}
+        onMouseLeave={()=> setHoberedId()}
+        onClick={() => setCharSelect(hoveredId)}
         fill="url(#pattern61_639_83)"
       />
       <rect
@@ -435,6 +852,10 @@ const BbcfRoster = () => {
         y="89"
         width="101"
         height="103"
+        style={{
+          transition: 'filter .2s ease-in-out',
+          filter: (hoveredId || charSelect) === 'Hazama' ? 'brightness(1)' : '',
+        }}
         fill="url(#pattern62_639_83)"
       />
       <rect
@@ -442,38 +863,115 @@ const BbcfRoster = () => {
         y="89"
         width="101"
         height="103"
+        style={{
+          transform: (hoveredId || charSelect) === 'Hazama' ? 'rotate(180deg)' : '',
+          borderRadius: '50%',
+          filter: (hoveredId || charSelect) === 'Hazama' ? 'drop-shadow(0 0 .3rem rgb(0, 225, 255))' : '',
+          transformOrigin: "128.5px 140.5px"
+        }}
+        onMouseOver={()=> setHoberedId('Hazama')}
+        onMouseLeave={()=> setHoberedId()}
+        onClick={() => setCharSelect(hoveredId)}
         fill="url(#pattern63_639_83)"
       />
-      <rect y="314" width="101" height="103" fill="url(#pattern64_639_83)" />
-      <rect y="314" width="101" height="103" fill="url(#pattern65_639_83)" />
+      <rect 
+        y="314" 
+        width="101" 
+        height="103"
+        style={{
+          transition: 'filter .2s ease-in-out',
+          filter: (hoveredId || charSelect) === 'Tager' ? 'brightness(1)' : '',
+        }} 
+        fill="url(#pattern64_639_83)" 
+      />
+      <rect 
+        y="314" 
+        width="101" 
+        height="103"
+        style={{
+          transform: (hoveredId || charSelect) === 'Tager' ? 'rotate(180deg)' : '',
+          borderRadius: '50%',
+          filter: (hoveredId || charSelect) === 'Tager' ? 'drop-shadow(0 0 .3rem rgb(0, 225, 255))' : '',
+          transformOrigin: "50.5px 365.5px"
+        }}
+        onMouseOver={()=> setHoberedId('Tager')}
+        onMouseLeave={()=> setHoberedId()}
+        onClick={() => setCharSelect(hoveredId)} 
+        fill="url(#pattern65_639_83)" 
+      />
       <rect
-        x="1"
         y="224"
         width="101"
         height="103"
+        style={{
+          transition: 'filter .2s ease-in-out',
+          filter: (hoveredId || charSelect) === 'Bullet' ? 'brightness(1)' : '',
+        }} 
         fill="url(#pattern66_639_83)"
       />
       <rect
-        x="1"
         y="224"
         width="101"
         height="103"
+        style={{
+          transform: (hoveredId || charSelect) === 'Bullet' ? 'rotate(180deg)' : '',
+          borderRadius: '50%',
+          filter: (hoveredId || charSelect) === 'Bullet' ? 'drop-shadow(0 0 .3rem rgb(0, 225, 255))' : '',
+          transformOrigin: "50.5px 275.5px"
+        }}
+        onMouseOver={()=> setHoberedId('Bullet')}
+        onMouseLeave={()=> setHoberedId()}
+        onClick={() => setCharSelect(hoveredId)}
         fill="url(#pattern67_639_83)"
       />
-      <rect y="134" width="101" height="103" fill="url(#pattern68_639_83)" />
-      <rect y="134" width="101" height="103" fill="url(#pattern69_639_83)" />
+      <rect 
+        y="134" 
+        width="101" 
+        height="103"
+        style={{
+          transition: 'filter .2s ease-in-out',
+          filter: (hoveredId || charSelect) === 'Nu' ? 'brightness(1)' : '',
+        }}  
+        fill="url(#pattern68_639_83)" 
+      />
+      <rect 
+        y="134" 
+        width="101" 
+        height="103" 
+        style={{
+          transform: (hoveredId || charSelect) === 'Nu' ? 'rotate(180deg)' : '',
+          borderRadius: '50%',
+          filter: (hoveredId || charSelect) === 'Nu' ? 'drop-shadow(0 0 .3rem rgb(0, 225, 255))' : '',
+          transformOrigin: "50.5px 185.5px"
+        }}
+        onMouseOver={()=> setHoberedId('Nu')}
+        onMouseLeave={()=> setHoberedId()}
+        onClick={() => setCharSelect(hoveredId)}
+        fill="url(#pattern69_639_83)" 
+      />
       <rect
-        x="1"
         y="43"
         width="101"
         height="103"
+        style={{
+          transition: 'filter .2s ease-in-out',
+          filter: (hoveredId || charSelect) === 'Es' ? 'brightness(1)' : '',
+        }} 
         fill="url(#pattern70_639_83)"
       />
       <rect
-        x="1"
         y="43"
         width="101"
         height="103"
+        style={{
+          transform: (hoveredId || charSelect) === 'Es' ? 'rotate(180deg)' : '',
+          borderRadius: '50%',
+          filter: (hoveredId || charSelect) === 'Es' ? 'drop-shadow(0 0 .3rem rgb(0, 225, 255))' : '',
+          transformOrigin: "50.5px 94.5px"
+        }}
+        onMouseOver={()=> setHoberedId('Es')}
+        onMouseLeave={()=> setHoberedId()}
+        onClick={() => setCharSelect(hoveredId)}
         fill="url(#pattern71_639_83)"
       />
       <defs>
