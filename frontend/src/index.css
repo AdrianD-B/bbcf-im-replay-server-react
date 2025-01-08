@@ -73,6 +73,16 @@
   );
 }
 
+.stat-gradient{
+  background: linear-gradient(
+    90deg, 
+    darkred 0%,
+    darkred 49.5%,
+    darkgreen 50.5%,
+    darkgreen 100%
+  );
+}
+
 rect{
   transition: transform .3s ease-in-out;
   filter: brightness(.5);

@@ -91,25 +91,19 @@ def get_stats():
         for toon in range(0,36):  # Characters range from 0 to 35
                 if toon == char:
                         continue  # Skip the character being queried
-        
-        # Count wins for the current toon
-        wins = sum(
-                1 for game in json_games
-                if (game["p1Toon"] == toon and game["winner"] == 0) or (game["p2Toon"] == toon and game["winner"] == 1)
-        )
-
-        # Count losses for the current toon
-        losses = sum(
-                1 for game in json_games
-                if (game["p1Toon"] == toon and game["winner"] == 1) or (game["p2Toon"] == toon and game["winner"] == 0) 
-        )
-
-        # Append the results
-        results.append({
-                "character": toon,
-                "wins": wins,
-                "losses": losses
-        })
+                wins = sum(
+                        1 for game in json_games
+                        if (game["p1Toon"] == toon and game["winner"] == 0) or (game["p2Toon"] == toon and game["winner"] == 1)
+                )
+                losses = sum(
+                        1 for game in json_games
+                        if (game["p1Toon"] == toon and game["winner"] == 1) or (game["p2Toon"] == toon and game["winner"] == 0) 
+                )
+                results.append({
+                        "character": toon,
+                        "wins": wins,
+                        "losses": losses
+                })
 
         # Return the results as a response
         return jsonify(results)
